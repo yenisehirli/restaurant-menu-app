@@ -32,7 +32,7 @@ const handleHomeClick = async () => {
           <div class="relative">
             <button
               @click="showFavorites = !showFavorites"
-              class="flex items-center gap-2 hover:text-orange-100 transition-colors"
+              class="flex items-center gap-2 hover:text-orange-100 transition-colors cursor-pointer"
             >
               <span>❤️</span>
               <span>Favorites</span>

@@ -20,4 +20,9 @@ export const mealService = {
     const response = await api.get<MealResponse>("/random.php");
     return response.data;
   },
+
+  async getCategories() {
+    const response = await api.get("/categories.php");
+    return response.data;
+  },
 };

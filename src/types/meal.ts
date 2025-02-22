@@ -16,3 +16,9 @@ export interface Meal {
 export interface MealResponse {
   meals: Meal[];
 }
+
+export interface MealSuggestion {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
