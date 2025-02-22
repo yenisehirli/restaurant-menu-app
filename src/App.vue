@@ -69,7 +69,7 @@ const handleHomeClick = async () => {
                 <span class="flex-1 truncate">{{ favorite.strMeal }}</span>
                 <button
                   @click.prevent="favoriteStore.toggleFavorite(favorite)"
-                  class="text-red-500 hover:text-red-600"
+                  class="text-red-500 hover:text-red-600 cursor-pointer"
                 >
                   ✕
                 </button>
