@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useMealStore } from "@/stores/meal";
 import { useDebounce } from "@vueuse/core";
 
 const searchQuery = ref("");
 const mealStore = useMealStore();
+
+watch(
+  () => mealStore.currentSearchQuery,
+  (newQuery) => {
+    searchQuery.value = newQuery;
+  },
+  { immediate: true }
+);
 
 const performSearch = async (query: string) => {
   await mealStore.searchMeals(query.trim());

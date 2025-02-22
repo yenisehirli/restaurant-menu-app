@@ -8,14 +8,15 @@ export const useMealStore = defineStore("meal", () => {
   const loading = ref(false);
   const error = ref<string | null>(null);
   const initialized = ref(false);
+  const currentSearchQuery = ref("");
 
   async function searchMeals(query: string = "") {
     try {
       loading.value = true;
       error.value = null;
+      currentSearchQuery.value = query;
 
       const trimmedQuery = query.trim();
-
       const response = await mealService.searchMeals(trimmedQuery);
 
       if (response.meals === null) {
@@ -33,6 +34,12 @@ export const useMealStore = defineStore("meal", () => {
     }
   }
 
+  async function resetAndInitialize() {
+    currentSearchQuery.value = "";
+    initialized.value = false;
+    await searchMeals("");
+  }
+
   async function initializeStore() {
     if (!initialized.value && meals.value.length === 0) {
       await searchMeals("");
@@ -44,7 +51,9 @@ export const useMealStore = defineStore("meal", () => {
     loading,
     error,
     initialized,
+    currentSearchQuery,
     searchMeals,
     initializeStore,
+    resetAndInitialize,
   };
 });

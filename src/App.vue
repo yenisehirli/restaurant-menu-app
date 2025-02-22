@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import { useFavoriteStore } from "@/stores/favorites";
+import { useMealStore } from "@/stores/meal";
 import { ref } from "vue";
 
 const favoriteStore = useFavoriteStore();
-
+const mealStore = useMealStore();
 const showFavorites = ref(false);
+
+const handleHomeClick = async () => {
+  await mealStore.resetAndInitialize();
+};
 </script>
 
 <template>
@@ -17,6 +22,7 @@ const showFavorites = ref(false);
         <router-link
           to="/"
           class="text-2xl font-bold flex items-center gap-2 hover:text-orange-100 transition-colors"
+          @click="handleHomeClick"
         >
           <span>🍽️</span>
           <span>Restoraurant Menu</span>
