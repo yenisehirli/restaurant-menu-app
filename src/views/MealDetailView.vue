@@ -87,7 +87,7 @@ onMounted(async () => {
         </span>
       </div>
 
-      <h2 class="text-2xl font-semibold mb-4">Malzemeler</h2>
+      <h2 class="text-2xl font-semibold mb-4">Ingredients</h2>
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <li
           v-for="(ingredient, index) in getIngredients(meal)"

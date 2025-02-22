@@ -19,7 +19,7 @@ onActivated(loadInitialData);
 <template>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">
-      Lezzetli Yemek Tarifleri
+      Delicious Recipes
     </h1>
     <SearchBar />
     <MealList />
